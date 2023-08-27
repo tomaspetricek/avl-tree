@@ -1,0 +1,6 @@
+# ninja log v5
+1	360	1693117810439761553	build.ninja	b93fc944dd42d056
+0	1106	1693117821332709281	src/CMakeFiles/avl-tree.dir/main.cpp.o	fee5f64fbfd714c
+1109	1214	1693117821444415877	src/avl-tree	4d3bffa19cd69bba
+13	1143	1693117869857715980	src/CMakeFiles/avl-tree.dir/main.cpp.o	fee5f64fbfd714c
+1144	1243	1693117869961876511	src/avl-tree	4d3bffa19cd69bba
