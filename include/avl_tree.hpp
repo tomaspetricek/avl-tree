@@ -16,6 +16,7 @@ namespace top {
             node* right{nullptr}, * left{nullptr};
         };
         node* root_{nullptr};
+        std::size_t size_{0};
 
         void clear(node*& curr)
         {
@@ -23,11 +24,11 @@ namespace top {
                 clear(curr->left);
                 clear(curr->right);
                 delete curr;
-                curr = nullptr;
             }
         }
     public:
         using value_type = T;
+        using size_type = std::size_t;
 
         void insert(const T& value)
         {
@@ -55,6 +56,7 @@ namespace top {
                     prev->right = new node{value};
                 }
             }
+            size_++;
         }
 
         bool contains(const T& value) const
@@ -82,11 +84,18 @@ namespace top {
         void clear()
         {
             clear(root_);
+            root_ = nullptr;
+            size_ = 0;
+        }
+
+        std::size_t size() const
+        {
+            return size_;
         }
 
         ~avl_tree()
         {
-            clear(root_);
+            clear();
         }
     };
 }
