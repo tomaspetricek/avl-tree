@@ -142,10 +142,17 @@ namespace top {
             return new node{value};
         }
 
+        bool same(node* lhs, node* rhs) const
+        {
+            if (!lhs || !rhs) {
+                return lhs==lhs;
+            }
+            return (lhs->value==rhs->value) && same(lhs->right, rhs->right) && same(lhs->left, rhs->left);
+        }
+
     public:
         using value_type = T;
         using size_type = std::size_t;
-        using node_type = node;
 
         void insert(const T& value)
         {
@@ -154,7 +161,7 @@ namespace top {
 
         bool contains(const T& value) const
         {
-            node* curr{root_};
+            node*curr{root_};
             while (curr) {
                 if (curr->value==value) {
                     return true;
@@ -167,6 +174,16 @@ namespace top {
                 }
             }
             return false;
+        }
+
+        bool operator==(const avl_tree& rhs) const
+        {
+            return same(root_, rhs.root_);
+        }
+
+        bool operator!=(const avl_tree& rhs) const
+        {
+            return !(rhs==*this);
         }
 
         bool empty() const
@@ -186,14 +203,14 @@ namespace top {
             return size_;
         }
 
-        ~avl_tree()
-        {
-            clear();
-        }
-
         int height() const
         {
             return compute_height(root_);
+        }
+
+        ~avl_tree()
+        {
+            clear();
         }
     };
 }
