@@ -11,7 +11,13 @@
 #include <random>
 
 BOOST_AUTO_TEST_SUITE(avl_tree_test)
+    BOOST_AUTO_TEST_CASE(tutorial_based_test) {
+        using value_type = int;
+        using tree_type = top::avl_tree<value_type>;
+        tree_type tree;
+        tree_type::node_type* expect_root;
 
+    }
 BOOST_AUTO_TEST_SUITE_END()
 
 #endif //TEST_AVL_TREE_AVL_TREE_HPP
