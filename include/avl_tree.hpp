@@ -53,10 +53,6 @@ namespace top {
 
             curr->update_height();
             left->update_height();
-
-            if (root_==curr) {
-                root_ = left;
-            }
             return left;
         }
 
@@ -70,10 +66,6 @@ namespace top {
 
             curr->update_height();
             right->update_height();
-
-            if (root_==curr) {
-                root_ = right;
-            }
             return right;
         }
 
@@ -90,10 +82,6 @@ namespace top {
             left->update_height();
             curr->update_height();
             left_right->update_height();
-
-            if (root_==curr) {
-                root_ = left_right;
-            }
             return left_right;
         }
 
@@ -110,10 +98,6 @@ namespace top {
             right->update_height();
             curr->update_height();
             right_left->update_height();
-
-            if (root_==curr) {
-                root_ = right_left;
-            }
             return right_left;
         }
 
