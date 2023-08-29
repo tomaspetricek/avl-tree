@@ -19,20 +19,21 @@ namespace top {
 
             void update_height()
             {
-                int left_height = left ? left->height : 0;
-                int right_height = right ? right->height : 0;
-                height = std::max(left_height, right_height)+1;
+                height = std::max(compute_height(left), compute_height(right))+1;
             }
 
             int balance_factor()
             {
-                int left_height = left ? left->height : 0;
-                int right_height = right ? right->height : 0;
-                return left_height-right_height;
+                return compute_height(left)-compute_height(right);
             }
         };
         node* root_{nullptr};
         std::size_t size_{0};
+
+        static int compute_height(node* node)
+        {
+            return node ? node->height : 0;
+        }
 
         void clear(node*& curr)
         {
@@ -188,6 +189,11 @@ namespace top {
         ~avl_tree()
         {
             clear();
+        }
+
+        int height() const
+        {
+            return compute_height(root_);
         }
     };
 }
